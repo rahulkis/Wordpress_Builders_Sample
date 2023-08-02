@@ -1,0 +1,18 @@
+<div class="breakdance-dropdown breakdance-dropdown--custom{{ content.content.link ? ' breakdance-dropdown--with-link' }}">
+    <div class="breakdance-dropdown-toggle">
+      {% set tag = content.content.link ? 'a' : 'button' %}
+      <{{ tag }} class="breakdance-menu-link" {{ content.content.link ? 'href="'~ content.content.link ~ '"' }}{{ tag == 'button' ? ' type="button"' }} aria-expanded="false" aria-controls="dropdown-%%ID%%" {{ dataContentEditablePropertyPath('content.content.text') }}>
+          {{ content.content.text }}
+      </{{ tag }}>
+
+      <button class="breakdance-menu-link-arrow" type="button" aria-expanded="false" aria-controls="dropdown-%%ID%%" aria-label="{{ content.content.text }} Submenu"></button>
+    </div>
+
+    <div class="breakdance-dropdown-floater" aria-hidden="true" id="dropdown-%%ID%%">
+        <div class="breakdance-dropdown-body">
+            <div class="breakdance-dropdown-custom-content">
+                %%CHILDREN%%
+            </div>
+        </div>
+    </div>
+</div>
